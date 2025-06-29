@@ -46,9 +46,6 @@
 
 #define HEALTH_PATH      "/healthz"
 #define API_PATH         "/api/v1"
-#define QUEUE_PATH       "/queue"
-#define NAMED_QUEUE_PATH "/queue/:name"
-#define QUEUE_COUNT_PATH "/queue/:name/count"
 
 #define UNUSED(x) (void)x
 
@@ -119,7 +116,7 @@ callback_default(const struct _u_request *request, struct _u_response *response,
 
 /**
  * callback_health_check handles all health check
- * requests to the thinq service.
+ * requests to the service.
  */
 int
 callback_health_check(const struct _u_request *request, struct _u_response *response, void *user_data)
@@ -169,8 +166,6 @@ api_init(config_t *config,   const char *git_hash)
 
     ulfius_add_endpoint_by_val(&instance, HTTP_METHOD_GET, HEALTH_PATH, NULL, 0, &callback_health_check, (void*)git_hash);
 
-    ulfius_add_endpoint_by_val(&instance, HTTP_METHOD_GET, API_PATH, NAMED_QUEUE_PATH, 0, &callback_hello, NULL);
-
     ulfius_set_default_endpoint(&instance, &callback_default, NULL);
 
     return 0;
@@ -180,7 +175,7 @@ void
 api_start()
 {
     if (ulfius_start_framework(&instance) == U_OK) {
-        s_log(S_LOG_INFO, s_log_string("msg", "starting thinq api server"), s_log_int("port", instance.port));
+        s_log(S_LOG_INFO, s_log_string("msg", "starting the api server"), s_log_int("port", instance.port));
 
         getchar();
     } else {

@@ -95,7 +95,7 @@ signal(SIGINT, sig_handler);
     api_init(config, (const char*)STR(git_sha));
     api_start();
 
-    s_log(S_LOG_INFO, s_log_string("msg", "shutting down thinq..."));
+    s_log(S_LOG_INFO, s_log_string("msg", "shutting down the service..."));
 
     cleanup();
 

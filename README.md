@@ -11,6 +11,7 @@ This repository is a base implementation for an HTTP JSON API in C. The structur
 * Makefile to build the project
 * Dockerfile template ready to build images
 * CI via Github Actions for building, testing, and spell check
+* Configuration driven through environment variables
 
 ## Requirements / Dependencies
 

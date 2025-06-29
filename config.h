@@ -43,7 +43,7 @@ typedef struct {
 } config_t;
 
 /**
- * resposible for loading all default and user provided configuration values.
+ * responsible for loading all default and user provided configuration values.
  */
 config_t* config_load();
 
