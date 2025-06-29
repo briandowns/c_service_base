@@ -269,7 +269,7 @@ int
 callback_default(const struct _u_request *request, struct _u_response *response, void *user_data);
 
 /**
- * callback_health_check handles all health check requests to the thinq service.
+ * callback_health_check handles all health check requests to the service.
  */
 int
 callback_health_check(const struct _u_request *request, struct _u_response *response, void *user_data);
